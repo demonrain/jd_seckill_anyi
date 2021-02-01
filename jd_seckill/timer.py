@@ -18,8 +18,8 @@ class Timer(object):
         try:
             self.buy_time = datetime.strptime(global_config.getRaw('config', 'buy_time'), "%Y-%m-%d %H:%M:%S.%f")
         except Exception as e:
-            # 如果没有配置购买时间，就使用当天的时间，2021-01-13 09:59:59.800
-            self.buy_time = datetime.strptime((time.strftime("%Y-%m-%d", time.localtime()) + " 09:59:59.800")
+            # 如果没有配置购买时间，就使用当天的时间，2021-01-13 11:59:59.800
+            self.buy_time = datetime.strptime((time.strftime("%Y-%m-%d", time.localtime()) + " 11:59:59.800")
                                               , "%Y-%m-%d %H:%M:%S.%f")
         logger.info('配置的抢购时间为: %s', self.buy_time)
         self.buy_time_ms = int(time.mktime(self.buy_time.timetuple()) * 1000.0 + self.buy_time.microsecond / 1000)
